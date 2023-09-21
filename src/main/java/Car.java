@@ -3,10 +3,10 @@ public class Car {
     private static final int START_POSITION = 0;
     private static final int GO_MIN_VALUE = 4;
     private static final int GO_MAX_VALUE = 9;
-    private String name;
+    private final CarName name;
     private int position;
 
-    public Car(String name) {
+    public Car(CarName name) {
         this.name = name;
         this.position = START_POSITION;
     }
@@ -17,8 +17,8 @@ public class Car {
     }
 
     // 주사위 결과에 따라 자동차가 전진하는지 체크
-    public boolean validateGO(int dice) {
-        return GO_MIN_VALUE <= dice && dice <= GO_MAX_VALUE;
+    public boolean validateGO(int number) {
+        return GO_MIN_VALUE <= number && number <= GO_MAX_VALUE;
     }
 
     // 주사위 결과에 따라서 전진하거나 멈추고, 결과를 출력한다.
@@ -42,5 +42,4 @@ public class Car {
         }
         return prettyPosition;
     }
-
 }

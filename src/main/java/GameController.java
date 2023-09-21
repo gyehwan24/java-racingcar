@@ -6,9 +6,8 @@ import java.util.List;
 // 데이터를 입력받고 게임을 진행시킨다.
 public class GameController {
 
-    // 입출력
     private final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-    private List<Car> cars;
+    private Cars cars;
     private int carNum = 0;
 
     // 게임 실행
