@@ -43,4 +43,12 @@ public class Car {
         }
         return prettyPosition;
     }
+
+    public int getPosition() {
+        return this.position;
+    }
+
+    public CarName getName() {
+        return this.name;
+    }
 }
