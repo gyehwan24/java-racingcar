@@ -3,6 +3,7 @@ public class Car {
     private static final int START_POSITION = 0;
     private static final int GO_MIN_VALUE = 4;
     private static final int GO_MAX_VALUE = 9;
+
     private final CarName name;
     private int position;
 

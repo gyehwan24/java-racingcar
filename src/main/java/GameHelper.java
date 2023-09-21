@@ -10,6 +10,5 @@ public class GameHelper {
 
     public static void presentationResult() {
         System.out.println("실행 결과");
-
     }
 }
