@@ -8,7 +8,11 @@ public class Cars {
         this.cars = cars;
     }
 
-    public void addCar(Car car) {
-        cars.add(car);
+    public List<Car> getCars() {
+        return this.cars;
+    }
+
+    public void racing() {
+        this.cars.forEach(Car::racing);
     }
 }

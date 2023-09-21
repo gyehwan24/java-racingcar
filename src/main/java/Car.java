@@ -22,8 +22,9 @@ public class Car {
     }
 
     // 주사위 결과에 따라서 전진하거나 멈추고, 결과를 출력한다.
-    public void racing(int dice) {
-        if (validateGO(dice)) {
+    public void racing() {
+        NumGenerator numGenerator = new NumGenerator();
+        if (validateGO(numGenerator.getNumber())) {
             this.go();
         }
         this.printStatus();
@@ -31,7 +32,7 @@ public class Car {
 
     // 자동차의 현재 상태 출력(이름, 포지션)
     public void printStatus() {
-        System.out.println(this.name + " : " + printPosition(this.position));
+        System.out.println(this.name.getCarName() + " : " + printPosition(this.position));
     }
 
     // 현재 위치만큼 '-' 출력
