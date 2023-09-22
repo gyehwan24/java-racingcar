@@ -15,7 +15,7 @@ public class Cars {
         System.out.println();
     }
 
-    public int getMaxPosition() {
+    private int getMaxPosition() {
         int max = 0;
         for (Car car : this.cars) {
             max = Math.max(car.getPosition(), max);
@@ -23,7 +23,7 @@ public class Cars {
         return max;
     }
 
-    public Cars getWinners() {
+    private Cars getWinners() {
         int maxPosition = getMaxPosition();
         List<Car> carList = cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)

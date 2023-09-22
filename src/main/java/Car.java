@@ -12,27 +12,27 @@ public class Car {
         this.position = START_POSITION;
     }
 
-    public void go() {
+    private void go() {
         this.position++;
     }
 
-    public boolean validateGO(int number) {
+    private boolean canGo(int number) {
         return GO_MIN_VALUE <= number && number <= GO_MAX_VALUE;
     }
 
     public void racing() {
         NumGenerator numGenerator = new NumGenerator();
-        if (validateGO(numGenerator.getNumber())) {
+        if (canGo(numGenerator.getNumber())) {
             this.go();
         }
         this.printStatus();
     }
 
-    public void printStatus() {
+    private void printStatus() {
         System.out.println(this.name.getCarName() + " : " + printPosition(this.position));
     }
 
-    public String printPosition(int position) {
+    private String printPosition(int position) {
         String prettyPosition = "";
         for (int i = 0; i < position; i++) {
             prettyPosition += "-";
