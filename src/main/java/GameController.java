@@ -7,15 +7,15 @@ import java.util.stream.Collectors;
 public class GameController {
 
     private final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+
     private Cars cars;
     private int carNumber = 0;
     private int gameNumber = 0;
 
-    // 경주 실행
     public void play() throws IOException {
         GameHelper.askCarName();
 
-        List<CarName> carNames= CarName.createNameList(reader.readLine());
+        List<Name> carNames= Name.createNameList(reader.readLine());
         List<Car> carList = carNames.stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
