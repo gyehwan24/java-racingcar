@@ -1,12 +1,25 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
 
+    private static final String NAME_SPLITTER = ",";
+
     private List<Car> cars;
 
-    public Cars(List<Car> cars) {
+    private Cars(List<Car> cars) {
         this.cars = cars;
+    }
+
+    public static Cars createDefault(String names) {
+        List<Name> splitName = Cars.createNameList(names);
+        List<Car> cars = new ArrayList<>();
+        for (Name name : splitName) {
+            cars.add(Car.createDefault(name));
+        }
+        return new Cars(cars);
     }
 
     public void racing() {
@@ -24,10 +37,9 @@ public class Cars {
 
     private List<Car> getWinners() {
         int maxPosition = getMaxPosition();
-        List<Car> winners = cars.stream()
+        return cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .collect(Collectors.toList());
-        return winners;
     }
 
 
@@ -37,6 +49,13 @@ public class Cars {
             System.out.print(winner.getName().getCarName() + " ");
         }
         System.out.println("가 최종 우승했습니다.");
+    }
+
+    private static List<Name> createNameList(String names) {
+        String[] splitnames = names.split(NAME_SPLITTER);
+        return Arrays.stream(splitnames)
+                .map(Name::createDefault)
+                .collect(Collectors.toList());
     }
 
     public List<Car> getCars() {

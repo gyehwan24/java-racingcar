@@ -15,11 +15,9 @@ public class GameController {
     public void play() throws IOException {
         GameHelper.askCarName();
 
-        List<Name> carNames= Name.createNameList(reader.readLine());
-        List<Car> carList = carNames.stream()
-                .map(Car::createDefault)
-                .collect(Collectors.toList());
-        this.cars = new Cars(carList);
+        String names = reader.readLine();
+        Cars cars = Cars.createDefault(names);
+
         carNumber = cars.getCars().size();
 
         GameHelper.askGameCount();
