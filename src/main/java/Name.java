@@ -14,7 +14,7 @@ public class Name {
         this.name = name;
     }
 
-    public static Name from(String name) {
+    public static Name createDefault(String name) {
         return new Name(name);
     }
 
@@ -33,7 +33,7 @@ public class Name {
         String[] splitedNames = nameList.split(NAME_SPLITTER);
         return Arrays.stream(splitedNames)
                 .filter(Name::validateNameLength)
-                .map(Name::from)
+                .map(Name::createDefault)
                 .collect(Collectors.toList());
     }
 }

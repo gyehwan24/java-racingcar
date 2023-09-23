@@ -17,7 +17,7 @@ public class GameController {
 
         List<Name> carNames= Name.createNameList(reader.readLine());
         List<Car> carList = carNames.stream()
-                .map(Car::new)
+                .map(Car::createDefault)
                 .collect(Collectors.toList());
         this.cars = new Cars(carList);
         carNumber = cars.getCars().size();

@@ -7,9 +7,13 @@ public class Car {
     private final Name name;
     private int position;
 
-    public Car(Name name) {
+    private Car(Name name) {
         this.name = name;
         this.position = START_POSITION;
+    }
+
+    public static Car createDefault(Name name) {
+        return new Car(name);
     }
 
     private void go() {
