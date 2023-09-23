@@ -1,8 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class GameController {
 
@@ -13,22 +11,23 @@ public class GameController {
     private int gameNumber = 0;
 
     public void play() throws IOException {
-        GameHelper.askCarName();
+        GameView.askCarName();
 
         String names = reader.readLine();
         Cars cars = Cars.createDefault(names);
 
         carNumber = cars.getCars().size();
 
-        GameHelper.askGameCount();
+        GameView.askGameCount();
         gameNumber = Integer.parseInt(reader.readLine());
 
-        GameHelper.presentationResult();
+        GameView.startGame();
 
         for (int i = 0; i < gameNumber; i++) {
             cars.racing();
+            GameView.showProcess(cars);
         }
 
-        cars.showWinners();
+        GameView.showWinners(cars);
     }
 }

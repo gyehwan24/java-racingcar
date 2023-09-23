@@ -29,19 +29,6 @@ public class Car {
         if (canGo(numGenerator.getNumber())) {
             this.go();
         }
-        this.printStatus();
-    }
-
-    private void printStatus() {
-        System.out.println(this.name.getCarName() + " : " + printPosition(this.position));
-    }
-
-    private String printPosition(int position) {
-        String prettyPosition = "";
-        for (int i = 0; i < position; i++) {
-            prettyPosition += "-";
-        }
-        return prettyPosition;
     }
 
     public int getPosition() {

@@ -24,7 +24,6 @@ public class Cars {
 
     public void racing() {
         this.cars.forEach(Car::racing);
-        System.out.println();
     }
 
     private int getMaxPosition() {
@@ -35,21 +34,13 @@ public class Cars {
         return max;
     }
 
-    private List<Car> getWinners() {
+    public List<Car> getWinners() {
         int maxPosition = getMaxPosition();
         return cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .collect(Collectors.toList());
     }
 
-
-    public void showWinners() {
-        List<Car> winners = this.getWinners();
-        for (Car winner : winners) {
-            System.out.print(winner.getName().getCarName() + " ");
-        }
-        System.out.println("가 최종 우승했습니다.");
-    }
 
     private static List<Name> createNameList(String names) {
         String[] splitnames = names.split(NAME_SPLITTER);
