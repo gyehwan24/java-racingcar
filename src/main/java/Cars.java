@@ -9,7 +9,6 @@ public class Cars {
         this.cars = cars;
     }
 
-
     public void racing() {
         this.cars.forEach(Car::racing);
         System.out.println();
@@ -23,20 +22,19 @@ public class Cars {
         return max;
     }
 
-    private Cars getWinners() {
+    private List<Car> getWinners() {
         int maxPosition = getMaxPosition();
-        List<Car> carList = cars.stream()
+        List<Car> winners = cars.stream()
                 .filter(car -> car.getPosition() == maxPosition)
                 .collect(Collectors.toList());
-        Cars winners = new Cars(carList);
         return winners;
     }
 
 
     public void showWinners() {
-        Cars winners = this.getWinners();
-        for (int i = 0; i < winners.getCars().size(); i++) {
-            System.out.print(winners.getCars().get(i).getName().getCarName()+" ");
+        List<Car> winners = this.getWinners();
+        for (Car winner : winners) {
+            System.out.print(winner.getName().getCarName() + " ");
         }
         System.out.println("가 최종 우승했습니다.");
     }
