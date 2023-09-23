@@ -10,11 +10,11 @@ public class Name {
 
     private final String name;
 
-    public Name(String name) {
+    private Name(String name) {
         this.name = name;
     }
 
-    public static Name createCarName(String name) {
+    public static Name from(String name) {
         return new Name(name);
     }
 
@@ -33,7 +33,7 @@ public class Name {
         String[] splitedNames = nameList.split(NAME_SPLITTER);
         return Arrays.stream(splitedNames)
                 .filter(Name::validateNameLength)
-                .map(Name::createCarName)
+                .map(Name::from)
                 .collect(Collectors.toList());
     }
 }
